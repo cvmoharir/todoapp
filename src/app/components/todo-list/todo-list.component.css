@@ -1,0 +1,14 @@
+mat-card {
+    max-width: 500px;
+    margin: 20px auto;
+  }
+  
+  mat-list-item {
+    margin-bottom: 10px;
+  }
+  
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
