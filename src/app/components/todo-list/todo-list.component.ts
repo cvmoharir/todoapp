@@ -42,38 +42,39 @@ import { MatLabel } from '@angular/material/form-field';
 
 export class TodoListComponent {
   todoItems = [
-    { text: 'Buy groceries', checked: false },
-    { text: 'Clean the house', checked: false },
-    { text: 'Pay bills', checked: false },
-    { text: 'Call mom', checked: false },
-    { text: 'Finish project', checked: false },
-    { text: 'Go to gym', checked: false },
-    { text: 'Read a book', checked: false },
-    { text: 'Plan vacation', checked: false },
-    { text: 'Learn Angular', checked: false },
-    { text: 'Write blog post', checked: false }
+    { text: 'Brush/floss', checked: false },
+    { text: 'Bathroom clothes cleanup', checked: false },
+    { text: 'Apply cream/lotion', checked: false },
+    { text: 'Hair/knots comb', checked: false },
+    { text: 'Pack school lunch', checked: false },
+    { text: 'Pack PE/Sports clothes', checked: false },
+    { text: 'Eat breakfast completly', checked: false },
+    { text: 'Put away dishes', checked: false },
+    { text: 'Soak breakfast cup/bowl', checked: false },
+    { text: 'Turn off all the lights', checked: false }
   ];
 
   emailClients = [
-    { value: 'mailto:', viewValue: 'Default Email Client' },
+   // { value: 'mailto:', viewValue: 'Default Email Client' },
     { value: 'https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Todo List Summary&body=', viewValue: 'Gmail' },
-    { value: 'https://outlook.live.com/owa/?path=/mail/action/compose&subject=Todo List Summary&body=', viewValue: 'Outlook' }
+  //  { value: 'https://outlook.live.com/owa/?path=/mail/action/compose&subject=Todo List Summary&body=', viewValue: 'Outlook' }
   ];
 
   selectedEmailClient = this.emailClients[0].value;
 
-  sendEmail() {
-    const checkedItems = this.todoItems.filter(item => item.checked);
-    const uncheckedItems = this.todoItems.filter(item => !item.checked);
+    sendEmail(): void {
+      const checkedItems = this.todoItems.filter(item => item.checked);
+      const uncheckedItems = this.todoItems.filter(item => !item.checked);
 
-    let emailBody = 'Todo List Summary:\n\n';
-    emailBody += 'Completed Tasks:\n';
-    checkedItems.forEach(item => emailBody += `- ${item.text}\n`);
-    emailBody += '\nPending Tasks:\n';
-    uncheckedItems.forEach(item => emailBody += `- ${item.text}\n`);
+      let emailBody = 'Today\'s summary:\n\n';
+      emailBody += 'Completed Tasks:\n';
+      checkedItems.forEach(item => emailBody += `- ${item.text}\n`);
+      emailBody += '\nPending Tasks:\n';
+      uncheckedItems.forEach(item => emailBody += `- ${item.text}\n`);
+      emailBody += '\nThanks :\n';
+      emailBody += '\nIsiri!! :\n';
 
-    const encodedBody = encodeURIComponent(emailBody);
-    const mailtoLink = `${this.selectedEmailClient}${encodedBody}`;
-    window.open(mailtoLink, '_blank');
-  }
-}
+      const encodedBody = encodeURIComponent(emailBody);
+      const mailtoLink = `${this.selectedEmailClient}${encodedBody}`;
+      window.open(mailtoLink, '_blank');
+    }}
